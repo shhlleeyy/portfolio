@@ -1,90 +1,45 @@
-// Small interactive JS: filtering, modal, theme, contact placeholder
-const filters = document.querySelectorAll('.filter');
-const cards = document.querySelectorAll('.card');
-const projectsGrid = document.getElementById('projectsGrid');
-const modal = document.getElementById('modalBackdrop');
-const modalContent = document.getElementById('modalContent');
-const modalClose = document.getElementById('modalClose');
-const themeToggle = document.getElementById('themeToggle');
-const yearEl = document.getElementById('year');
+const imgs = document.querySelectorAll('.gallery img, .mini-gallery img');
+const videos = document.querySelectorAll('.video-gallery video');
+const lightbox = document.getElementById('lightbox');
+const lightImg = document.createElement('img');
 
-yearEl.textContent = new Date().getFullYear();
 
-filters.forEach(btn=>btn.addEventListener('click', ()=>{
-const f = btn.getAttribute('data-filter');
-filterProjects(f);
-}));
-
-function filterProjects(filter){
-cards.forEach(card=>{
-    const tags = card.dataset.tags.split(',').map(t=>t.trim());
-    if(filter==='all' || tags.includes(filter)){
-    card.style.display='flex';
-    } else card.style.display='none';
-});
-}
-
-// Modal logic: clicking "View" shows a larger description
-document.querySelectorAll('.viewBtn').forEach((b,i)=>{
-b.addEventListener('click', ()=>openModal(cards[i]));
-});
-document.querySelectorAll('.card').forEach((c)=>{
-c.addEventListener('keydown', (e)=>{ if(e.key==='Enter') openModal(c); });
+imgs.forEach(img=>{
+    img.addEventListener('click',()=>{
+        const playingVid = lightbox.querySelector('video');
+        if (playingVid) playingVid.pause();
+        lightbox.innerHTML='';
+        lightImg.src = img.src;
+        lightImg.style.maxWidth='90%';
+        lightImg.style.maxHeight='90%';
+        lightImg.style.borderRadius='12px';
+        lightbox.appendChild(lightImg);
+        lightbox.style.display='flex';
+    });
 });
 
-function openModal(card){
-const title = card.querySelector('h3').textContent;
-const img = card.querySelector('img').src;
-const desc = card.querySelector('p').textContent;
-modalContent.innerHTML = `
-    <h2>${title}</h2>
-    <img src="${img}" alt="${title}" style="width:100%;max-height:360px;object-fit:cover;border-radius:8px;margin:8px 0">
-    <p style="color:var(--muted)">${desc}</p>
-    <p><strong>Tech:</strong> ${card.dataset.tags}</p>
-    <div style="display:flex;gap:8px;margin-top:10px"><a class="btn" href="#">Open demo</a><a class="btn" href="#">Open code</a></div>
-`;
-modal.style.display='flex';
-modal.setAttribute('aria-hidden','false');
-document.body.style.overflow='hidden';
-modalClose.focus();
-}
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
-function closeModal(){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto'; }
 
-// Theme toggle
-const root = document.documentElement;
-const storedTheme = localStorage.getItem('theme');
-if(storedTheme) root.setAttribute('data-theme', storedTheme);
-themeToggle.addEventListener('click', ()=>{
-const cur = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-root.setAttribute('data-theme', cur);
-localStorage.setItem('theme', cur);
-themeToggle.setAttribute('aria-pressed', cur==='light');
+videos.forEach(vid => {
+    vid.addEventListener('click', () => {
+        lightbox.innerHTML = ''; // clear old content
+
+        const newVid = document.createElement('video');
+        newVid.src = vid.currentSrc || vid.src; // ✅ ensure correct video path
+        newVid.controls = true;
+        newVid.muted = false; // you can keep it true if you prefer muted
+        newVid.autoplay = true;
+        newVid.style.maxWidth = '90%';
+        newVid.style.maxHeight = '90%';
+        newVid.style.borderRadius = '12px';
+
+        lightbox.appendChild(newVid);
+        lightbox.style.display = 'flex';
+    });
 });
 
-// Contact placeholder
-function handleContact(e){
-e.preventDefault();
-const form = e.target;
-const data = {name:form.name.value, email:form.email.value, message:form.message.value};
-alert('This demo form does not send messages. Connect it to a backend or use Formspree.\n' + JSON.stringify(data, null, 2));
-form.reset();
-}
 
-// Download resume stub: replace href with your resume file
-document.getElementById('downloadResume').addEventListener('click', (e)=>{
-e.preventDefault();
-alert('Replace the download link with your resume PDF.');
+
+lightbox.addEventListener('click',()=>{
+    lightbox.style.display='none';
+    lightbox.innerHTML='<video src="" controls muted></video>';
 });
-
-// Accessibility: focus trap basic (keeps keyboard on modal while open)
-document.addEventListener('focus', (e)=>{
-if(modal.style.display==='flex' && !modal.contains(e.target)){
-    e.stopPropagation(); modalClose.focus();
-}
-}, true);
-
-// Initial filter
-filterProjects('all');

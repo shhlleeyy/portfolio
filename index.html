@@ -1,43 +1,28 @@
-<!--
-  CS Portfolio - Updated with Mini Projects Gallery
--->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Computer Science Projects — Ashley Joy Gimeno</title>
+    <title>Background Studios</title>
     <meta name="description" content="Portfolio showing Ashley Joy Gimeno's web and mobile development projects." />
     <link rel="stylesheet" href="style.css">
-    <style>
-      .gallery, .video-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; margin-top:10px; }
-      .gallery img, .mini-gallery img, .video-gallery video { width:100%; border-radius:10px; cursor:pointer; transition:transform .2s; }
-      .gallery img:hover, .mini-gallery img:hover, .video-gallery video:hover { transform:scale(1.02); }
-      .functions { margin-top:8px; }
-      .functions li { color:var(--muted); font-size:0.9rem; margin-bottom:4px; }
-      .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; z-index:100; }
-      .lightbox video, .lightbox img { max-width:90%; max-height:90%; border-radius:12px; }
-      .mini-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:14px; }
-      .mini-item { position:relative; overflow:hidden; border-radius:10px; background:var(--card); }
-      .mini-info { position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.5); color:#fff; font-size:0.85rem; padding:6px 10px; text-align:center; }
-    </style>
   </head>
+  
   <body>
-    <header class="container" aria-label="topbar">
+    <header class="container">
       <div class="nav">
         <div class="brand">
-          <div class="logo">CS</div>
+          <div class="logo">BS</div>
           <div>
             <div style="font-weight:700">Ashley Joy Gimeno</div>
-            <div style="font-size:0.85rem;color:var(--muted)">Front-end & Back-end Development • Web & Mobile Apps • UI/UX Design</div>
+            <div style="font-size:0.85rem; color:var(--muted)">Front-end & Back-end Development • Web & Mobile Apps • UI/UX Design</div>
           </div>
         </div>
         <nav>
           <ul>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="Gimeno-Resume.pdf" target="_blank" class="btn resume-btn">View Resume</a></li>
           </ul>
         </nav>
       </div>
@@ -47,14 +32,14 @@
       <section class="hero">
         <div class="intro">
           <h1>Hi — I'm Ashley Joy Gimeno</h1>
-          <p>Computer Science student passionate about front-end & back-end development, UI/UX design, and database systems. Below are featured and mini projects I've built.</p>
+          <p>I’m passionate about full-stack development, UI/UX design, and creating meaningful digital experiences. 
+            I love building responsive and user-focused applications that bring ideas to life through both functionality and design. 
+            Below are some of the projects I’ve developed that showcase my technical skills and creativity.</p>
         </div>
       </section>
 
       <section id="projects" class="section">
-        <h2>Project Template: ONE CAS WEBSITE</h2>
         <article class="card" data-tags="web,fullstack" tabindex="0">
-          <img src="oneCAS.png" alt="ONE CAS homepage screenshot">
           <div class="meta">Web • Full-stack</div>
           <h3>ONE CAS WEBSITE (2022–2023)</h3>
           <p class="meta">A dynamic website for the UPV College of Arts and Sciences featuring announcements, divisions, and offices with an interactive navigation system.</p>
@@ -65,13 +50,14 @@
             <li>📧 Contact and informational sections for departments</li>
           </ul>
           <div class="gallery">
-            <img src="oneCAS\Screenshot 2025-10-07 222124.png" alt="One CAS homepage">
-            <img src="oneCAS\Screenshot 2025-10-07 222202.png" alt="Events & Announcements">
-            <img src="oneCAS\Screenshot 2025-10-07 222220.png" alt="Dropdown Navigation">
-            <img src="oneCAS\Screenshot 2025-10-07 222312.png"" alt="Division Page">
-            <img src="oneCAS\Screenshot 2025-10-07 222329.png" alt="About Section">
+            <img src="oneCAS/Screenshot 2025-10-07 222124.png" alt="One CAS homepage">
+            <img src="oneCAS/Screenshot 2025-10-07 222202.png" alt="Events & Announcements">
+            <img src="oneCAS/Screenshot 2025-10-07 222220.png" alt="Dropdown Navigation">
+            <img src="oneCAS/Screenshot 2025-10-07 222312.png"" alt="Division Page">
+            <img src="oneCAS/Screenshot 2025-10-07 222329.png" alt="About Section">
           </div>
         </article>
+
         <article class="card" data-tags="mobile,fullstack" tabindex="0">
           <div class="meta">Mobile • Full-stack</div>
           <h3>MEDI-GO (2023–2024)</h3>
@@ -83,11 +69,31 @@
             <li>💬 Notifications & Data Sync — Firebase for real-time updates and storage</li>
           </ul>
           <div class="video-gallery">
-            <video src="mediGo\Screenrecorder-2024-04-22-01-00-30-422.mp4" muted></video>
-            <video src="mediGo\Screenrecorder-2024-04-22-01-00-05-79.mp4" muted></video>
-            <video src="mediGo\Screenrecorder-2024-04-22-01-01-47-966.mp4" muted></video>
-            <video src="mediGo\Screenrecorder-2024-04-22-01-24-47-359.mp4" muted></video>
+            <video src="mediGO/Screenrecorder-2024-04-22-01-00-30-422.mp4" muted></video>
+            <video src="mediGO/Screenrecorder-2024-04-22-01-00-05-79.mp4" muted></video>
+            <video src="mediGO/Screenrecorder-2024-04-22-01-01-47-966.mp4" muted></video>
+            <video src="mediGO/Screenrecorder-2024-04-22-01-24-47-359.mp4" muted></video>
           </div>
+          </article>
+
+          <article class="card" data-tags="mobile,game" tabindex="0">
+            <div class="meta">Mobile Game • UI/UX Developer</div>
+            <h3>GUESS WHO (2025)</h3>
+            <p class="meta">A multiplayer guessing game where players try to identify their opponent’s chosen character through yes-or-no questions. Designed for fun interaction and clean mobile UX flow.</p>
+            <ul class="functions">
+              <li>🎮 Login and room creation screens for multiplayer setup</li>
+              <li>💬 Real-time chat during guessing phase</li>
+              <li>👥 Character grid interface for visual deduction gameplay</li>
+              <li>🏆 Win/Loss screens and quit confirmation dialog</li>
+            </ul>
+
+            <div class="gallery">
+              <img src="guesswho/Screenshot 2025-10-07 221821.png" alt="Guess Who login and username screens">
+              <img src="guesswho/Screenshot 2025-10-07 221836.png" alt="Guess Who loading and waiting screens">
+              <img src="guesswho/Screenshot 2025-10-07 221857.png" alt="Guess Who game room interface">
+              <img src="guesswho/Screenshot 2025-10-07 221914.png" alt="Guess Who win and loss screens">
+              <img src="guesswho/Screenshot 2025-10-07 221932.png" alt="Guess Who quit confirmation">
+            </div>
           </article>
       </section>
 
@@ -96,78 +102,90 @@
         <p>Here are smaller projects, experiments, and UI components I created to improve my skills in design and coding.</p>
         <div class="mini-gallery">
           <div class="mini-item">
-            <img src="ehs.png" alt="EHS Website>
-            <div class="mini-info">To-Do App — Task manager with local storage</div>
+            <img src="ehs.png" alt="EHS Website">
+            <div class="mini-info">A mock-up website for UST-EHS</div>
           </div>
           <div class="mini-item">
-            <img src="https://picsum.photos/seed/weather/400/300" alt="Weather Dashboard">
-            <div class="mini-info">Weather Dashboard — Real-time weather API integration</div>
+            <img src="cosmetics.png" alt="Cosmetics Brand">
+            <div class="mini-info">Sample Homepage for Cosmetic Brand</div>
           </div>
           <div class="mini-item">
-            <img src="https://picsum.photos/seed/loginui/400/300" alt="Login UI">
-            <div class="mini-info">Login UI — Responsive form using Flexbox</div>
+            <img src="services.png" alt="Portfolio">
+            <div class="mini-info">Scrollable Sample Portfolio</div>
           </div>
           <div class="mini-item">
-            <img src="https://picsum.photos/seed/portfolio/400/300" alt="Portfolio Mockup">
-            <div class="mini-info">Portfolio Mockup — Early layout prototype</div>
+            <img src="aboutUs.png" alt="About Us">
+            <div class="mini-info">Simple About Us Page</div>
           </div>
         </div>
       </section>
 
       <section id="about" class="section">
         <h2>About & Skills</h2>
-        <p>I build responsive and visually structured web applications that improve usability and engagement. I’m currently expanding my expertise in full-stack development and UI design using modern tools and frameworks.</p>
+        <p>
+          I specialize in designing and developing web and mobile applications that are efficient, intuitive, and visually engaging. 
+          My approach combines technical problem-solving with a strong sense of design, allowing me to create seamless user experiences. 
+          I’ve worked with technologies such as HTML, CSS, JavaScript, Flutter, and Firebase to develop dynamic and data-driven systems.
+        </p>
+        <p>
+          I’m always exploring new tools and frameworks to enhance my skills in full-stack development and modern interface design. 
+          My goal is to continue building solutions that make technology more accessible, reliable, and enjoyable to use.
+        </p>
+        <h3>Technical Skills</h3>
+        <div class="skills-category">
+          <h4>Languages</h4>
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">Java</span>
+            <span class="skill">C/C++</span>
+            <span class="skill">Flutter</span>
+            <span class="skill">NASM Assembly</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h4>Web Development</h4>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">PHP</span>
+            <span class="skill">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h4>Tools</h4>
+          <div class="skills">
+            <span class="skill">Visual Studio Code</span>
+            <span class="skill">Eclipse</span>
+            <span class="skill">NetBeans</span>
+            <span class="skill">Git/GitHub</span>
+            <span class="skill">Figma</span>
+          </div>
+        </div>
       </section>
 
       <footer class="section">
-        <div>© <span id="year"></span> Ashley Joy Gimeno — Built with HTML, CSS & JavaScript</div>
+        <div class="footer-content">
+          <div>© 2025 Ashley Joy Gimeno — Built with HTML, CSS & JavaScript</div>
+          <div class="social-links">
+            <a href="mailto:ashleyjoy.gimeno@gmail.com" aria-label="Email">
+              <img src="icons/email.svg" alt="Email icon">
+            </a>
+            <a href="https://www.linkedin.com/in/ashleygimeno" target="_blank" aria-label="LinkedIn">
+              <img src="icons/linkedin.svg" alt="LinkedIn icon">
+            </a>
+            <a href="https://github.com/shhlleeyy" target="_blank" aria-label="GitHub">
+              <img src="icons/github.svg" alt="GitHub icon">
+            </a>
+          </div>
+        </div>
       </footer>
     </main>
 
     <div class="lightbox" id="lightbox"><img src="" alt="expanded"></div>
 
-    <script>
-      const imgs = document.querySelectorAll('.gallery img, .mini-gallery img');
-      const videos = document.querySelectorAll('.video-gallery video');
-      const lightbox = document.getElementById('lightbox');
-      const lightVid = lightbox.querySelector('video');
-      const lightImg = document.createElement('img');
-
-
-      imgs.forEach(img=>{
-      img.addEventListener('click',()=>{
-      lightVid.pause();
-      lightbox.innerHTML='';
-      lightImg.src = img.src;
-      lightImg.style.maxWidth='90%';
-      lightImg.style.maxHeight='90%';
-      lightImg.style.borderRadius='12px';
-      lightbox.appendChild(lightImg);
-      lightbox.style.display='flex';
-      });
-      });
-
-
-      videos.forEach(vid=>{
-      vid.addEventListener('click',()=>{
-      lightbox.innerHTML='';
-      const clone = vid.cloneNode(true);
-      clone.controls=true;
-      clone.muted=true;
-      clone.autoplay=true;
-      lightbox.appendChild(clone);
-      lightbox.style.display='flex';
-      });
-      });
-
-
-      lightbox.addEventListener('click',()=>{
-      lightbox.style.display='none';
-      lightbox.innerHTML='<video src="" controls muted></video>';
-      });
-
-
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
